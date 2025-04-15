@@ -42,8 +42,27 @@ class Star {
 
 const stars = []
 
+function drawStaticText() {
+    ctx.save()
+    
+    // Title
+    ctx.font = 'bold 48px Arial'
+    ctx.fillStyle = '#ffffff'
+    ctx.textAlign = 'center'
+    ctx.fillText('Star Canvas', canvas.width / 2, 60)
+    
+    // Instructions
+    ctx.font = '20px Arial'
+    ctx.fillStyle = '#cccccc'
+    ctx.fillText('Click anywhere to create your own little stars', canvas.width / 2, 100)
+    
+    ctx.restore()
+}
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    
+    drawStaticText()
     
     stars.forEach(star => {
         star.update()
